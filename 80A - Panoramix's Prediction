@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n, m, loop,  next_prime;
+    cin >> n >> m;
+
+    for(int i = n+1; i <= 50; i++)
+    {
+        int count_div = 0;
+        loop = sqrt(i);
+
+        for(int j = 2; j <= loop; j++)
+        {
+            if(i%j == 0 && j != i)
+            {
+                count_div++;
+                break;
+            }
+        }
+        if(count_div == 0)
+        {
+            next_prime = i;
+            break;
+        }
+    }
+    if(next_prime == m)
+    {
+        cout << "YES" << endl;
+    }
+    else
+        cout << "NO" << endl;
+}
